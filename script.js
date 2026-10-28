@@ -432,3 +432,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Count taps on any phone link as a Contact conversion (Google Ads)
+document.addEventListener('click', function(e) {
+    var link = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (link && typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-16965823802/6xh-CIKbgssaELra95k_'});
+    }
+});
