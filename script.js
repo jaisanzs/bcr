@@ -113,8 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Unique email subject per request so Gmail doesn't stack them into one thread
             const custName = (formData.get('name') || '').toString().trim() || 'Website visitor';
             const custService = (formData.get('service') || '').toString().trim();
-            const stamp = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-            formData.set('_subject', 'Quote request: ' + custName + (custService ? ' (' + custService + ')' : '') + ' - ' + stamp);
+            formData.set('_subject', custName + (custService ? ' - ' + custService : ''));
             
             // Show loading state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
